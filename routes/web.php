@@ -25,7 +25,7 @@ Route::get('/add_articles', function () {
     return view('articles/add');
 });
 Route::get('/', 'ArticlesController@show');
-Route::post('/add_process', 'ArticlesController@add_process');
+Route::post('/add_articles', 'ArticlesController@add_articles');
 Route::get('/detail/{id}', 'ArticlesController@detail');
 Route::get('/admin', 'ArticlesController@show_by_admin');
 Route::get('/edit/{id}', 'ArticlesController@edit');

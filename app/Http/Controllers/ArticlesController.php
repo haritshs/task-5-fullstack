@@ -40,7 +40,9 @@ class ArticlesController extends Controller
         return view('articles/show', ['article'=>$articles]);
     }
 
-    public function add_process(Request $article)
+
+
+    public function add_articles(Request $article)
     {
         $user_id = Auth::user()->id;
         $foto = "";
@@ -121,11 +123,28 @@ class ArticlesController extends Controller
 
     public function edit_process(Request $article)
     {
+        $user_id = Auth::user()->id;
+
         $id = $article->id;
-        $judul = $article->judul;
-        $deskripsi = $article->deskripsi;
+        $title = $article->title;
+        $content = $article->content;
+        $image = $article->image;
+        $category_id = $article->category_id;
+
+        $foto = $article->image;
+        if($article->hasfile('image'))
+        {
+            if (File::exists(public_path().'/assets/images/'.$foto)) {
+                File::delete(public_path().'/assets/images/'.$foto);
+            }
+
+            $file = $article->file('foto');
+            $foto = time().'.'.$file->extension();
+            $file->move(public_path().'/assets/images/', $foto);
+        }
+
         DB::table('articles')->where('id', $id)
-                            ->update(['judul' => $judul, 'deskripsi' => $deskripsi]);
+                            ->update(['title' => $title, 'content' => $content, 'image' => $image, 'category_id' => $category_id]);
         Session::flash('success', 'Artikel berhasil diedit');
         return redirect()->action('ArticlesController@show_by_admin');
     }

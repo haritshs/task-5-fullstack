@@ -1,10 +1,7 @@
-<!-- membuat kerangka dari master.blade.php -->
 @extends('master')
  
-<!-- membuat komponen title sebagai judul halaman -->
 @section('title', 'Menambah Artikel')
  
-<!-- membuat komponen main yang berisi form untuk mengisi judul dan isi artikel -->
 @section('main')
 <div class="col-md-8 col-sm-12 bg-white p-4">
     <form method="post" action="/add_process">

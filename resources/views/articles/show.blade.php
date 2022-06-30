@@ -1,18 +1,15 @@
-<!-- menggunakan kerangka dari halaman master.blade.php --> 
+
 @extends('master')
  
-<!-- membuat komponen title sebagai judul halaman -->
 @section('title', 'Blog Sederhana')
  
-<!-- membuat header dan tombol tambah artikel di atas -->
 @section('header')
     <center>
         <h2>Blog Sederhana</h2>
         <a href="/add"><button class="btn btn-success">Tambah Artikel</button></a>
     </center>
 @endsection
- 
-<!-- membuat komponen main yang berisi form untuk mengisi judul dan isi artikel -->
+
 @section('main')
     @foreach ($article as $art)
     <div class="col-md-4 col-sm-12 mt-4">

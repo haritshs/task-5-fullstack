@@ -1,6 +1,5 @@
 @extends('master')
  
-<!-- membuat judul bernama 'Edit Artikel' pada tab bar -->
 @section('title', 'Edit Artikel')
  
 @section('header')
@@ -37,8 +36,7 @@
         </div>
 </div>
 @endsection
- 
-<!-- membuat komponen sidebar yang berisi tombol untuk upload artikel -->
+
 @section('sidebar')
 <div class="col-md-3 ml-md-5 col-sm-12 bg-white p-4" style="height:120px 
     <div class="form-group">

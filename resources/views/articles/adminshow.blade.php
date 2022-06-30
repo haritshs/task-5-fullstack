@@ -1,4 +1,3 @@
-<!-- menggunakan kerangka dari master.blade.php -->
 @extends('master')
  
 @section('header')
